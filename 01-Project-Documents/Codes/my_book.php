@@ -23,18 +23,7 @@ if($conn->connect_error){
 }
 ?>
 
-<?php
-if(isset($_POST['deleteTradeRequest'])){
-  $sql="DELETE FROM `TradeRequests` WHERE `requestID`='".$_POST['deleteTradeRequest']."'";
-  $result=$conn->query($sql);
-  if(!$result){
-    echo "Failed to delete trade request";
-  }
-  else{
-    echo "Successfully deleted trade request";
-  }
-}
-?>
+<!-- delete book -->
 <html>
   <head>
     <title>My Books</title>
