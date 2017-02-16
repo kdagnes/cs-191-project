@@ -28,8 +28,8 @@ if($conn->connect_error){
   </head>
 <body>
   <div>
-    <form action='trade_request.php'><button type='submit'>Trade Requests</button></form>
-    <form action='logout.php'><button type='submit'>Log Out</button></form>
+    <form action='trade_request.php'><button>Trade Requests</button></form>
+    <form action='logout.php'><button>Log Out</button></form>
   </div>
 </body>
 </html>
