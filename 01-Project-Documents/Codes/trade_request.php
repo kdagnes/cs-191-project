@@ -13,7 +13,7 @@ Matthew Aycocho; Feb. 16, 2017; Added session for user
 <!--
 File creation date: Jan. 31, 2017
 Development Group: The A-Team
-Purpose: This file is used to manage trade requests of user
+Purpose: manage trade requests of user
 -->
 <?php
 session_start();
