@@ -8,6 +8,7 @@ the AY 2016-2017.
 <!--  Code History
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Feb. 1, 2017; Initial code
+Matthew Aycocho; Feb. 16, 2017; Added session for user
 -->
 <!--
 File creation date: Jan. 31, 2017
@@ -16,6 +17,7 @@ Purpose: This file is used to manage trade requests of user
 -->
 <?php
 session_start();
+if(!isset($_SESSION['user'])){header("location:account.php");die();}
 $conn=new mysqli("localhost","root","Karen_02","bookup");
 if($conn->connect_error){
   die("Connection failed: ".$conn->connect_error);
@@ -48,7 +50,7 @@ if(isset($_POST['deleteTradeRequest'])){
       <th>Book To Trade In</th><th>Book To Trade Out</th><th>Delete Trade Request</th>
     </tr>
     <?php
-    $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='1'";
+    $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
     $resultGetTradeRequests=$conn->query($sqlGetTradeRequests);
     if($resultGetTradeRequests){
       if($resultGetTradeRequests->num_rows==0){
