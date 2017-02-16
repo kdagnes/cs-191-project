@@ -15,11 +15,11 @@ Purpose: Check correct log in input.
 
 
 <?php
-
+session_start();
 $conn = new mysqli("localhost", "root", "Karen_02", "bookup");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 ?>
 
@@ -33,7 +33,7 @@ if ($conn->connect_error) {
 //check if fields are empty
 if(empty($_POST['username']) or empty($_POST['password'])){
 	echo "Failed to login. Please input your username and password.";
-			
+
 			echo"<p><a href='account.php'>GO BACK</a></p>";
 			exit();
 	}
@@ -45,6 +45,9 @@ $sql = "SELECT * FROM accounts WHERE username = '".$_POST['username']."'";
 		//check if password matches
 		if($row['password'] == $_POST['password']){
 			echo "Successfully logged in!";
+      $_SESSION['user']=$_POST['username'];
+      header("location:trade_request.php");
+      die();
 		}
 		else {
 			echo "Wrong password.";
