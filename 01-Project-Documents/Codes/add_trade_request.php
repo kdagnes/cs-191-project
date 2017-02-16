@@ -50,7 +50,7 @@ if(isset($_POST['tradeOut'])){
   </head>
 <body>
   <div>
-    <form action='trade_request.php'><button type='submit'>Back</button></form>
+    <form action='trade_request.php'><button>Back</button></form>
   </div>
   <?php if(!isset($_POST['tradeIn'])){ ?>
     <table>
