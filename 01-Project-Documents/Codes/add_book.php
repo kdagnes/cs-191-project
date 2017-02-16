@@ -12,7 +12,7 @@ Matthew Aycocho; Feb. 16, 2017; Initial code
 <!--
 File creation date: Feb. 16, 2017
 Development Group: The A-Team
-Purpose: This file is used to manage trade requests of user
+Purpose: add books that the user own
 -->
 <?php
 session_start();
