@@ -8,6 +8,7 @@ the AY 2016-2017.
 <!--  Code History
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Feb. 1, 2017; Initial code
+Matthew Aycocho; Feb. 16, 2017; Added session for user
 -->
 <!--
 File creation date: Feb. 1, 2017
@@ -16,6 +17,7 @@ Purpose: This file is used to add a trade request for user
 -->
 <?php
 session_start();
+if(!isset($_SESSION['user'])){header("location:account.php");die();}
 $conn=new mysqli("localhost","root","Karen_02","bookup");
 if($conn->connect_error){
   die("Connection failed: ".$conn->connect_error);
@@ -24,13 +26,13 @@ if($conn->connect_error){
 
 <?php
 if(isset($_POST['tradeOut'])){
-  $sql="SELECT * FROM `TradeRequests` WHERE `user`='1' AND `tradeIn`='".$_POST['hidden']."' AND `tradeOut`='".$_POST['tradeOut']."'";
+  $sql="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."' AND `tradeIn`='".$_POST['hidden']."' AND `tradeOut`='".$_POST['tradeOut']."'";
   $result=$conn->query($sql);
   if($result->num_rows>0){
     $temp="Trade request already exists";
   }
   else{
-    $sql="INSERT INTO `TradeRequests` (`requestID`,`user`,`tradeIn`,`tradeOut`) VALUES ('1','1','".$_POST['hidden']."','".$_POST['tradeOut']."')";
+    $sql="INSERT INTO `TradeRequests` (`user`,`tradeIn`,`tradeOut`) VALUES ('".$_SESSION['user']."','".$_POST['hidden']."','".$_POST['tradeOut']."')";
     $result=$conn->query($sql);
     if($result){
       $temp="Successfully added trade request";
@@ -93,7 +95,7 @@ if(isset($_POST['tradeOut'])){
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){
           echo "<tr>";
-          $temp="<td>".$rowGetBooks['bookID']."</td></td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
+          $temp="<td>".$rowGetBooks['bookID']."</td><td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
           echo $temp;
           $temp="<td><form method='post'><input type='hidden' name='hidden' value='".$_POST['tradeIn']."'><button type='submit' name='tradeOut' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
           echo $temp;
