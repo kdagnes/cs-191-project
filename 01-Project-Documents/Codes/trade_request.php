@@ -42,7 +42,9 @@ if(isset($_POST['deleteTradeRequest'])){
   </head>
 <body>
   <div>
+    <form action='main.php'><button type='submit'>Menu</button></form>
     <form action='add_trade_request.php'><button type='submit'>Add Trade Request</button></form>
+    <form action='logout.php'><button type='submit'>Log Out</button></form>
   </div>
   <table>
     <caption>Trade Requests</caption>
