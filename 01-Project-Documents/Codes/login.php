@@ -46,7 +46,7 @@ $sql = "SELECT * FROM accounts WHERE username = '".$_POST['username']."'";
 		if($row['password'] == $_POST['password']){
 			echo "Successfully logged in!";
       $_SESSION['user']=$_POST['username'];
-      header("location:trade_request.php");
+      header("location:main.php");
       die();
 		}
 		else {
