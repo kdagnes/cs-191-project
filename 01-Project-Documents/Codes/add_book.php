@@ -7,7 +7,7 @@ the AY 2016-2017.
 -->
 <!--  Code History
 Name of Programmer; Change Date; Change Description
-Matthew Aycocho; Feb. 16, 2017; Initial code
+Matthew Aycocho; Mar. 2, 2017; Initial code
 -->
 <!--
 File creation date: Feb. 16, 2017
@@ -25,13 +25,13 @@ if($conn->connect_error){
 
 <?php
 if(isset($_POST['addBook'])){
-  $sql="SELECT * FROM `<table>` WHERE `<user column>`='".$_SESSION['user']."' AND `<book column>`='".$_POST['addBook']."' ";
+  $sql="SELECT * FROM `MyBooks` WHERE `user`='".$_SESSION['user']."' AND `bookID`='".$_POST['addBook']."' ";
   $result=$conn->query($sql);
   if($result->num_rows>0){
     $temp="Book already exists";
   }
   else{
-    $sql="INSERT INTO `<table>` (`<user column>`,`<book column>`) VALUES ('".$_SESSION['user']."','".$_POST['addBook']."')";
+    $sql="INSERT INTO `MyBooks` (`user`,`bookID`) VALUES ('".$_SESSION['user']."','".$_POST['addBook']."')";
     $result=$conn->query($sql);
     if($result){
       $temp="Successfully added book";
@@ -49,7 +49,7 @@ if(isset($_POST['addBook'])){
   </head>
 <body>
   <div>
-    <form action='main.php'><button>Back</button></form>
+    <form action='my_book.php'><button>Back</button></form>
   </div>
   <table>
     <caption>Select book</caption>
@@ -57,7 +57,7 @@ if(isset($_POST['addBook'])){
       <th>ID</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
     </tr>
     <?php
-    $sqlGetBooks="SELECT * FROM `Books`";
+    $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."')";
     $resultGetBooks=$conn->query($sqlGetBooks);
     if($resultGetBooks){
       if($resultGetBooks->num_rows==0){

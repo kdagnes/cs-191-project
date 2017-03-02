@@ -7,7 +7,7 @@ the AY 2016-2017.
 -->
 <!--  Code History
 Name of Programmer; Change Date; Change Description
-Matthew Aycocho; Feb. 16, 2017; Initial code
+Matthew Aycocho; Mar. 2, 2017; Initial code
 -->
 <!--
 File creation date: Feb. 16, 2017
@@ -23,7 +23,18 @@ if($conn->connect_error){
 }
 ?>
 
-<!-- delete book -->
+<?php
+if(isset($_POST['removeBook'])){
+  $sql="DELETE FROM `MyBooks` WHERE `user`='".$_POST['removeBook']."'";
+  $result=$conn->query($sql);
+  if(!$result){
+    echo "Failed to remove book";
+  }
+  else{
+    echo "Successfully removed book";
+  }
+}
+?>
 <html>
   <head>
     <title>My Books</title>
@@ -34,7 +45,31 @@ if($conn->connect_error){
     <form action='add_book.php'><button>Add Book</button></form>
     <form action='logout.php'><button>Log Out</button></form>
   </div>
-  <!-- Add table -->
+  <table>
+    <caption>My Books</caption>
+    <tr>
+      <th>Book ID</th><th>Remove Book</th>
+    </tr>
+    <?php
+    $sqlGetMyBooks="SELECT * FROM `MyBooks` WHERE `user`='".$_SESSION['user']."'";
+    $resultGetMyBooks=$conn->query($sqlGetMyBooks);
+    if($resultGetMyBooks){
+      if($resultGetMyBooks->num_rows==0){
+        echo "<tr><td>No Books</td></tr>";
+      }
+      else{
+        while($rowGetMyBooks=$resultGetMyBooks->fetch_assoc()){
+          echo "<tr>";
+          $temp="<td>".$rowGetMyBooks['bookID']."</td>";
+          echo $temp;
+          $temp="<td><form method='post'><button type='submit' value='".$rowGetMyBooks['ownID']."' name='removeBook'>&times;</button></form></td>";
+          echo $temp;
+          echo "</tr>";
+        }
+      }
+    }
+    ?>
+  </table>
 </body>
 </html>
 <?php $conn->close(); ?>

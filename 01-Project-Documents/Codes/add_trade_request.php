@@ -9,6 +9,7 @@ the AY 2016-2017.
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Feb. 1, 2017; Initial code
 Matthew Aycocho; Feb. 16, 2017; Added session for user
+Matthew Aycocho; Mar. 2, 2017; Added book ownership restriction
 -->
 <!--
 File creation date: Feb. 1, 2017
@@ -59,7 +60,7 @@ if(isset($_POST['tradeOut'])){
         <th>ID</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
       </tr>
       <?php
-      $sqlGetBooks="SELECT * FROM `Books`";
+      $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."')";
       $resultGetBooks=$conn->query($sqlGetBooks);
       if($resultGetBooks){
         if($resultGetBooks->num_rows==0){
@@ -86,7 +87,7 @@ if(isset($_POST['tradeOut'])){
       <th>ID</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
     </tr>
     <?php
-    $sqlGetBooks="SELECT * FROM `Books` WHERE NOT(`bookID`='".$_POST['tradeIn']."')";
+    $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."') AND NOT(`bookID`='".$_POST['tradeIn']."')";
     $resultGetBooks=$conn->query($sqlGetBooks);
     if($resultGetBooks){
       if($resultGetBooks->num_rows==0){
