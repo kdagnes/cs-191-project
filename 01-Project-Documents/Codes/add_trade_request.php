@@ -87,7 +87,7 @@ if(isset($_POST['tradeOut'])){
       <th>ID</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
     </tr>
     <?php
-    $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."') AND NOT(`bookID`='".$_POST['tradeIn']."')";
+    $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."') AND NOT(`bookID`='".$_POST['tradeIn']."')";
     $resultGetBooks=$conn->query($sqlGetBooks);
     if($resultGetBooks){
       if($resultGetBooks->num_rows==0){

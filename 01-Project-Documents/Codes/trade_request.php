@@ -9,6 +9,7 @@ the AY 2016-2017.
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Feb. 1, 2017; Initial code
 Matthew Aycocho; Feb. 16, 2017; Added session for user
+Matthew Aycocho; Mar. 3, 2017; Book titles are shown instead of book IDs
 -->
 <!--
 File creation date: Jan. 31, 2017
@@ -60,8 +61,20 @@ if(isset($_POST['deleteTradeRequest'])){
       }
       else{
         while($rowGetTradeRequests=$resultGetTradeRequests->fetch_assoc()){
+          $bookTradeIn=$rowGetTradeRequests['tradeIn'];
+          $bookTradeOut=$rowGetTradeRequests['tradeOut'];
+
+          $sqlGetBookTradeIn="SELECT * FROM `Books` WHERE `bookID`='".$bookTradeIn."'";
+          $resultGetBookTradeIn=$conn->query($sqlGetBookTradeIn);
+          $rowGetBookTradeIn=$resultGetBookTradeIn->fetch_assoc();
           echo "<tr>";
-          $temp="<td>".$rowGetTradeRequests['tradeIn']."</td><td>".$rowGetTradeRequests['tradeOut']."</td>";
+          $temp="<td>".$rowGetBookTradeIn['title']."</td>";
+          echo $temp;
+
+          $sqlGetBookTradeOut="SELECT * FROM `Books` WHERE `bookID`='".$bookTradeOut."'";
+          $resultGetBookTradeOut=$conn->query($sqlGetBookTradeOut);
+          $rowGetBookTradeOut=$resultGetBookTradeOut->fetch_assoc();
+          $temp="<td>".$rowGetBookTradeOut['title']."</td>";
           echo $temp;
           $temp="<td><form method='post'><button type='submit' value='".$rowGetTradeRequests['requestID']."' name='deleteTradeRequest'>&times;</button></form></td>";
           echo $temp;

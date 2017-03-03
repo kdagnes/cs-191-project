@@ -8,6 +8,7 @@ the AY 2016-2017.
 <!--  Code History
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Mar. 2, 2017; Initial code
+Matthew Aycocho; Mar. 3, 2017; Book titles are shown instead of book IDs
 -->
 <!--
 File creation date: Feb. 16, 2017
@@ -25,7 +26,7 @@ if($conn->connect_error){
 
 <?php
 if(isset($_POST['removeBook'])){
-  $sql="DELETE FROM `MyBooks` WHERE `user`='".$_POST['removeBook']."'";
+  $sql="DELETE FROM `MyBooks` WHERE `ownID`='".$_POST['removeBook']."'";
   $result=$conn->query($sql);
   if(!$result){
     echo "Failed to remove book";
@@ -59,8 +60,13 @@ if(isset($_POST['removeBook'])){
       }
       else{
         while($rowGetMyBooks=$resultGetMyBooks->fetch_assoc()){
+          $myBook=$rowGetMyBooks['bookID'];
+
+          $sqlGetMyBook="SELECT * FROM `Books` WHERE `bookID`='".$myBook."'";
+          $resultGetMyBook=$conn->query($sqlGetMyBook);
+          $rowGetMyBook=$resultGetMyBook->fetch_assoc();
           echo "<tr>";
-          $temp="<td>".$rowGetMyBooks['bookID']."</td>";
+          $temp="<td>".$rowGetMyBook['title']."</td>";
           echo $temp;
           $temp="<td><form method='post'><button type='submit' value='".$rowGetMyBooks['ownID']."' name='removeBook'>&times;</button></form></td>";
           echo $temp;
