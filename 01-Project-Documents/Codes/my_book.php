@@ -49,7 +49,7 @@ if(isset($_POST['removeBook'])){
   <table>
     <caption>My Books</caption>
     <tr>
-      <th>Book ID</th><th>Remove Book</th>
+      <th>Book Title</th><th>Remove Book</th>
     </tr>
     <?php
     $sqlGetMyBooks="SELECT * FROM `MyBooks` WHERE `user`='".$_SESSION['user']."'";
