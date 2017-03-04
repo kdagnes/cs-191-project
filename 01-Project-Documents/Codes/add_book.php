@@ -45,11 +45,12 @@ if(isset($_POST['addBook'])){
 ?>
 <html>
   <head>
-    <title>My Books</title>
+    <title>Add Book</title>
   </head>
 <body>
   <div>
     <form action='my_book.php'><button>Back</button></form>
+    <form action='add_new_book.php'><button>Add New Book</button></form>
   </div>
   <table>
     <caption>Select book</caption>
