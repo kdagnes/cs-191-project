@@ -1,7 +1,6 @@
 <!--
 Author: Karen Margaret D. Agnes
 “This is a course requirement for CS 192 Software Engineering II under the supervision of Asst. Prof. Ma. Rowena C. Solamo of the Department of Computer Science, College of Engineering, University of the Philippines, Diliman for the AY 2015-2016”.
-
 CODE HISTORY
 Programmer: Karen Agnes
 Change Date: February 2, 2017
@@ -20,7 +19,6 @@ $conn = new mysqli("localhost", "root", "Karen_02", "bookup");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 ?>
 
 <html>
@@ -32,9 +30,8 @@ if ($conn->connect_error) {
 <?php
 //check if fields are empty
 if(empty($_POST['username']) or empty($_POST['password'])){
-	echo "Failed to login. Please input your username and password.";
-
-			echo"<p><a href='account.php'>GO BACK</a></p>";
+	$temp = "Failed to login. Please input your username and password.";
+	echo "<script>alert('$temp'); window.location.href='account.php'</script>";
 			exit();
 	}
 //checking if username exists
@@ -50,15 +47,15 @@ $sql = "SELECT * FROM accounts WHERE username = '".$_POST['username']."'";
       die();
 		}
 		else {
-			echo "Wrong password.";
-			echo"<p><a href='account.php'>GO BACK</a></p>";
+			$temp = "Wrong Password."	;
+			echo "<script>alert('$temp'); window.location.href='account.php'</script>";
 			exit();
 		}
 		}
 	}
 	else {
-		echo "Wrong username and password."	;
-		echo"<p><a href='account.php'>GO BACK</a></p>";
+		$temp = "Wrong username and password."	;
+		echo "<script>alert('$temp'); window.location.href='account.php'</script>";
 			exit();
 	}
 ?>

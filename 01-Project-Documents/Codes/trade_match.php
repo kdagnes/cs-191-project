@@ -24,13 +24,13 @@ if($conn->connect_error){
 <?php
 
 if(isset($_POST['confirmTradeMatch'])){
-	echo $_SESSION['user'];
-	echo $_POST['user'];
-	echo $_POST['book1'];
-	echo $_POST['book2'];
-	echo $_POST['requestID2'];
+	//echo $_SESSION['user'];
+	//echo $_POST['user'];
+	//echo $_POST['book1'];
+	//echo $_POST['book2'];
+	//echo $_POST['requestID2'];
 	$temp = "";
-	echo $_POST['confirmTradeMatch'];
+	//echo $_POST['confirmTradeMatch'];
 	$sql="SELECT * FROM `tradematches` WHERE (user1= '".$_SESSION['user']."' AND book1 ='".$_POST['book1']."' AND user2 ='".$_POST['user']."' AND book2 ='".$_POST['book2']."') OR 
 												(user2='".$_SESSION['user']."' AND book2 ='".$_POST['book1']."' AND user1 ='".$_POST['user']."' AND  book1 ='".$_POST['book2']."')";
 	$result = $conn->query($sql);
@@ -83,6 +83,21 @@ if(isset($_POST['confirmTradeMatch'])){
 }	
 
 ?>
+
+
+
+<?php
+if(isset($_POST['cancelTradeMatch'])){
+	$sql = "DELETE FROM tradematches WHERE matchID =".$_POST['cancelTradeMatch']." ";
+
+					if ($conn->query($sql) === TRUE) {
+						$temp = "Successfully canceled confirmation to trade match.";
+					} else {
+						$temp = "Error Cancelling" . $conn->error;
+					}	
+	echo "<script>alert('$temp'); window.location.href='trade_match.php'</script>";
+}	
+?>	
 <html>
 <head>
 <title> Book UP </title>
@@ -99,7 +114,7 @@ if(isset($_POST['confirmTradeMatch'])){
 <table>
     <caption>Trade Matches</caption>
     <tr>
-      <th>Book To Trade In</th><th>Book To Trade Out</th><th>Username</th><th>Confirm Trade Match</th>
+      <th>Book To Trade In</th><th>Book To Trade Out</th><th>Trader</th><th>Confirm Trade Match</th>
     </tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
@@ -122,7 +137,7 @@ if(isset($_POST['confirmTradeMatch'])){
           $temp="<td><form method='post'><input type='hidden' name='requestID2' value='".$rowGetTradeMatches['requestID2']."'>
 										 <input type='hidden' name='user' value='".$rowGetTradeMatches['user']."'>
 										 <input type='hidden' name='book1' value='".$rowGetTradeMatches['bookid1']."'>
-										 <input type='hidden' name='book2' value='".$rowGetTradeMatches['bookid2']."'>"; echo $temp; echo $rowGetTradeMatches['requestID2'];
+										 <input type='hidden' name='book2' value='".$rowGetTradeMatches['bookid2']."'>"; echo $temp;
 										 
 										 $sqlCheckConfirm = "SELECT * FROM `tradematches` WHERE user1 = '".$_SESSION['user']."' AND user2 = '".$rowGetTradeMatches['user']."' AND book1 = ".$rowGetTradeMatches['bookid1']." AND book2 = ".$rowGetTradeMatches['bookid2']."  AND confirm1 = 1;";
 										 $resultCheckConfirm = $conn->query($sqlCheckConfirm);
@@ -133,9 +148,12 @@ if(isset($_POST['confirmTradeMatch'])){
 						</form></td>";
 										 }
 										 else
-										 {
-											$temp =  "<button type='submit' value='".$rowGetTradeRequests['requestID']."' name='confirmTradeMatch'>Cancel Confirmation</button>
-						</form></td>";
+										 { 
+											while($rowCheckConfirm=$resultCheckConfirm->fetch_assoc()){ 
+											$temp =  "<form method = 'post'>
+											<button type='submit' value='".$rowCheckConfirm['matchID']."' name='cancelTradeMatch'>Cancel Confirmation</button>
+											</form></td>";
+											}
 										 }
 										}
 										else{
