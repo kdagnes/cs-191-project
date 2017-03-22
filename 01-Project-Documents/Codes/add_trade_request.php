@@ -58,9 +58,9 @@ if(isset($_POST['tradeOut'])){
   </div>
   <?php if(!isset($_POST['tradeIn'])){ ?>
     <table>
-      <caption>Select book to trade in</caption>
+      <caption>Select the book you want to receive</caption>
       <tr>
-        <th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
+        <th>Select</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th>
       </tr>
       <?php
       $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."')";
@@ -72,9 +72,9 @@ if(isset($_POST['tradeOut'])){
         else{
           while($rowGetBooks=$resultGetBooks->fetch_assoc()){
             echo "<tr>";
-            $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
-            echo $temp;
             $temp="<td><form method='post'><button type='submit' name='tradeIn' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+            echo $temp;
+            $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
             echo $temp;
             echo "</tr>";
           }
@@ -85,9 +85,9 @@ if(isset($_POST['tradeOut'])){
   <?php } ?>
   <?php if(isset($_POST['tradeIn'])){ ?>
   <table>
-    <caption>Select book to trade out</caption>
+    <caption>Select the book you want to give</caption>
     <tr>
-      <th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
+      <th>Select</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th>
     </tr>
     <?php
     $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."') AND NOT(`bookID`='".$_POST['tradeIn']."')";
@@ -99,9 +99,9 @@ if(isset($_POST['tradeOut'])){
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){
           echo "<tr>";
-          $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
-          echo $temp;
           $temp="<td><form method='post'><input type='hidden' name='hidden' value='".$_POST['tradeIn']."'><button type='submit' name='tradeOut' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+          echo $temp;
+          $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
           echo $temp;
           echo "</tr>";
         }

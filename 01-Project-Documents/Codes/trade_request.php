@@ -51,7 +51,7 @@ if(isset($_POST['deleteTradeRequest'])){
   <table>
     <caption>Trade Requests</caption>
     <tr>
-      <th>Book To Trade In</th><th>Book To Trade Out</th><th>Delete Trade Request</th>
+      <th>Book You Will Give</th><th>Book You Will Receive</th><th>Delete Trade Request</th>
     </tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
@@ -64,19 +64,20 @@ if(isset($_POST['deleteTradeRequest'])){
         while($rowGetTradeRequests=$resultGetTradeRequests->fetch_assoc()){
           $bookTradeIn=$rowGetTradeRequests['tradeIn'];
           $bookTradeOut=$rowGetTradeRequests['tradeOut'];
-
-          $sqlGetBookTradeIn="SELECT * FROM `Books` WHERE `bookID`='".$bookTradeIn."'";
-          $resultGetBookTradeIn=$conn->query($sqlGetBookTradeIn);
-          $rowGetBookTradeIn=$resultGetBookTradeIn->fetch_assoc();
           echo "<tr>";
-          $temp="<td>".$rowGetBookTradeIn['title']."</td>";
-          echo $temp;
 
           $sqlGetBookTradeOut="SELECT * FROM `Books` WHERE `bookID`='".$bookTradeOut."'";
           $resultGetBookTradeOut=$conn->query($sqlGetBookTradeOut);
           $rowGetBookTradeOut=$resultGetBookTradeOut->fetch_assoc();
           $temp="<td>".$rowGetBookTradeOut['title']."</td>";
           echo $temp;
+
+          $sqlGetBookTradeIn="SELECT * FROM `Books` WHERE `bookID`='".$bookTradeIn."'";
+          $resultGetBookTradeIn=$conn->query($sqlGetBookTradeIn);
+          $rowGetBookTradeIn=$resultGetBookTradeIn->fetch_assoc();
+          $temp="<td>".$rowGetBookTradeIn['title']."</td>";
+          echo $temp;
+
           $temp="<td><form method='post'><button type='submit' value='".$rowGetTradeRequests['requestID']."' name='deleteTradeRequest'>&times;</button></form></td>";
           echo $temp;
           echo "</tr>";

@@ -23,3 +23,21 @@ li  a:hover, .active {
 body {
   margin: 0;
 }
+
+table {
+  border-collapse: collapse;
+  width: 96%;
+  overflow-x: auto;
+  margin: auto;
+}
+
+th {
+  background-color: #F7C331;
+  color: white;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+tr:hover {
+  background-color: #DCC7AA;
+}
