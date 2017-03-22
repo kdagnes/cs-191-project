@@ -24,16 +24,11 @@ if($conn->connect_error){
 ?>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <title>Book UP</title>
   </head>
 <body>
-  <div>
-    <form action='my_book.php'><button type='submit'>My Books</button></form>
-	<form action='trade_request.php'><button type='submit'>Trade Requests</button></form>
-    <form action='trade_match.php'><button type='submit'>Trade Matches</button></form>
-    <form action='confirmed_trade.php'><button type='submit'>Ready to Trade Books</button></form>
-    <form action='logout.php'><button type='submit'>Log Out</button></form>
-  </div>
+  <?php include "menu.php" ?>
 </body>
 </html>
 <?php $conn->close(); ?>

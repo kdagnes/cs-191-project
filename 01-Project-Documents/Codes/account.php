@@ -14,6 +14,7 @@ Purpose: Display log in and create account.
 -->
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <title> Book UP </title>
 
 </head>
@@ -39,4 +40,3 @@ Mobile:   <br><input type='text' name='mobile'> <br>
 </form>
 </body>
 </html>
-

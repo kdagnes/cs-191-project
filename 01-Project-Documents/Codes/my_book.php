@@ -38,13 +38,13 @@ if(isset($_POST['removeBook'])){
 ?>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <title>My Books</title>
   </head>
 <body>
+  <?php include "menu.php" ?>
   <div>
-    <form action='main.php'><button>Menu</button></form>
     <form action='add_book.php'><button>Add Book</button></form>
-    <form action='logout.php'><button>Log Out</button></form>
   </div>
   <table>
     <caption>My Books</caption>

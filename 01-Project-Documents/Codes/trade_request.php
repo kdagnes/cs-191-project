@@ -39,13 +39,13 @@ if(isset($_POST['deleteTradeRequest'])){
 ?>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <title>Trade Requests</title>
   </head>
 <body>
+  <?php include "menu.php" ?>
   <div>
-    <form action='main.php'><button>Menu</button></form>
     <form action='add_trade_request.php'><button>Add Trade Request</button></form>
-    <form action='logout.php'><button>Log Out</button></form>
   </div>
   <table>
     <caption>Trade Requests</caption>

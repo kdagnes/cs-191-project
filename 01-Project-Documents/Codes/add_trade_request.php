@@ -48,9 +48,11 @@ if(isset($_POST['tradeOut'])){
 ?>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <title>Add Trade Request</title>
   </head>
 <body>
+  <?php include "menu.php" ?>
   <div>
     <form action='trade_request.php'><button>Back</button></form>
   </div>

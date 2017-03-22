@@ -45,9 +45,11 @@ if(isset($_POST['addBook'])){
 ?>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <title>Add Book</title>
   </head>
 <body>
+  <?php include "menu.php" ?>
   <div>
     <form action='my_book.php'><button>Back</button></form>
     <form action='add_new_book.php'><button>Add New Book</button></form>

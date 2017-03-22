@@ -23,6 +23,7 @@ if ($conn->connect_error) {
 
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <title> Book UP </title>
 
 </head>

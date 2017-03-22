@@ -23,16 +23,13 @@ if ($conn->connect_error) {
 
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <title> Book UP </title>
 
 </head>
 <body>
+  <?php include "menu.php" ?>
 
-
-  <div>
-    <form action='main.php'><button>Menu</button></form>
-    <form action='logout.php'><button>Log Out</button></form>
-  </div>
   <table>
     <caption>Ready to Trade Books</caption>
     <tr>
@@ -58,9 +55,9 @@ if ($conn->connect_error) {
 				$bookTradeOut = $rowGetTradeMatch['book1'];
 				$bookTrader = $rowGetTradeMatch['user1'];
 			}
-       
+
 			echo "<tr>";
-			
+
 			echo "<td>".$bookTradeIn."</td><td>".$bookTradeOut."</td><td>".$bookTrader."</td>";
 			echo "</tr>";
         }
