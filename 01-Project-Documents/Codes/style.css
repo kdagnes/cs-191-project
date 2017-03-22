@@ -1,0 +1,25 @@
+.menu {
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #6B7A8F;
+}
+
+li a {
+  float: left;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li  a:hover, .active {
+  background-color: #F7882F;
+}
+
+body {
+  margin: 0;
+}

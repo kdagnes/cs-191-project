@@ -29,6 +29,7 @@ if ($conn->connect_error) {
 </head>
 <body>
   <?php include "menu.php" ?>
+  <script>document.getElementById('confirmed_trade').className+=" active"</script>
 
   <table>
     <caption>Ready to Trade Books</caption>

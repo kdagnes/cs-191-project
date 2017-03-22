@@ -106,6 +106,7 @@ if(isset($_POST['cancelTradeMatch'])){
 </head>
 <body>
   <?php include "menu.php" ?>
+  <script>document.getElementById('trade_match').className+=" active"</script>
 
 <table>
     <caption>Trade Matches</caption>
