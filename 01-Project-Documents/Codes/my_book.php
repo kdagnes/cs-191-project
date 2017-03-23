@@ -57,7 +57,7 @@ if(isset($_POST['removeBook'])){
     $resultGetMyBooks=$conn->query($sqlGetMyBooks);
     if($resultGetMyBooks){
       if($resultGetMyBooks->num_rows==0){
-        echo "<tr><td>No Books</td></tr>";
+        echo "<tr><td colspan='99'>Books</td></tr>";
       }
       else{
         while($rowGetMyBooks=$resultGetMyBooks->fetch_assoc()){
