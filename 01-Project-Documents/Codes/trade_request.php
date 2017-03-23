@@ -58,7 +58,7 @@ if(isset($_POST['deleteTradeRequest'])){
     $resultGetTradeRequests=$conn->query($sqlGetTradeRequests);
     if($resultGetTradeRequests){
       if($resultGetTradeRequests->num_rows==0){
-        echo "<tr><td>No Trade Requests</td></tr>";
+        echo "<tr><td colspan='99'>No Trade Requests</td></tr>";
       }
       else{
         while($rowGetTradeRequests=$resultGetTradeRequests->fetch_assoc()){
