@@ -67,7 +67,7 @@ if(isset($_POST['tradeOut'])){
       $resultGetBooks=$conn->query($sqlGetBooks);
       if($resultGetBooks){
         if($resultGetBooks->num_rows==0){
-          echo "<tr><td>No Books</td></tr>";
+          echo "<tr><td colspan='99'>No Books</td></tr>";
         }
         else{
           while($rowGetBooks=$resultGetBooks->fetch_assoc()){
@@ -94,7 +94,7 @@ if(isset($_POST['tradeOut'])){
     $resultGetBooks=$conn->query($sqlGetBooks);
     if($resultGetBooks){
       if($resultGetBooks->num_rows==0){
-        echo "<tr><td>No Books</td></tr>";
+        echo "<tr><td colspan='99'>No Books</td></tr>";
       }
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){
