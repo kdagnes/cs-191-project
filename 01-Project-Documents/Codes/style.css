@@ -41,3 +41,38 @@ tr:nth-child(even){background-color: #f2f2f2}
 tr:hover {
   background-color: #DCC7AA;
 }
+
+.add_new_book {
+  position: relative;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 42%;
+}
+
+.add_new_book_input {
+  width: 100%;
+  padding: 10px;
+}
+
+button {
+  background-color: #F7882F;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  float: left;
+  margin: 0px 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}

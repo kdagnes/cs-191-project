@@ -54,15 +54,16 @@ if(isset($_POST['addNewBook'])){
     <form action='add_book.php'><button>Back</button></form>
   </div>
   <form method='post'>
-    <div>
-      Title: <br><input type='text' name='title' required></input><br>
-      Author: <br><input type='text' name='author' required></input><br>
-      Year: <br><input type='number' name='year' min='0' required></input><br>
-      Publisher: <br><input type='text' name='publisher' required></input><br>
-      Genre: <br><input type='text' name='genre'></input><br>
-      Subject: <br><input type='text' name='subject'></input><br>
+    <div class='add_new_book'>
+      Title: <br><input type='text' name='title' class='add_new_book_input' required></input><br>
+      Author: <br><input type='text' name='author' class='add_new_book_input' required></input><br>
+      Year: <br><input type='number' name='year' min='0' class='add_new_book_input' required></input><br>
+      Publisher: <br><input type='text' name='publisher' class='add_new_book_input' required></input><br>
+      Genre: <br><input type='text' name='genre' class='add_new_book_input'></input><br>
+      Subject: <br><input type='text' name='subject' class='add_new_book_input'></input><br>
+      <br>
+      <button type='submit' name='addNewBook'>Add</button>
     </div>
-    <button type='submit' name='addNewBook'>Add</button>
   </form>
 </body>
 </html>

@@ -47,7 +47,9 @@ if(isset($_POST['removeBook'])){
   <div>
     <form action='add_book.php'><button>Add Book</button></form>
   </div>
-  <table>
+  <br>
+  <br>
+  <table style='width:50%'>
     <caption>My Books</caption>
     <tr>
       <th>Title</th><th>Remove from My Books</th>
@@ -57,7 +59,7 @@ if(isset($_POST['removeBook'])){
     $resultGetMyBooks=$conn->query($sqlGetMyBooks);
     if($resultGetMyBooks){
       if($resultGetMyBooks->num_rows==0){
-        echo "<tr><td colspan='99'>Books</td></tr>";
+        echo "<tr><td colspan='99'>No Books</td></tr>";
       }
       else{
         while($rowGetMyBooks=$resultGetMyBooks->fetch_assoc()){
