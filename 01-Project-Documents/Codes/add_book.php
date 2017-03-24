@@ -51,8 +51,8 @@ if(isset($_POST['addBook'])){
 <body>
   <?php include "menu.php" ?>
   <div>
-    <form action='my_book.php'><button>Back</button></form>
-    <form action='add_new_book.php'><button>Add New Book</button></form>
+    <form action='my_book.php'><button class = "button1">Back</button></form>
+    <form action='add_new_book.php'><button class = "button1">Add New Book</button></form>
   </div>
   <table>
     <caption>Select book</caption>
@@ -69,7 +69,7 @@ if(isset($_POST['addBook'])){
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){
           echo "<tr>";
-          $temp="<td><form method='post'><button type='submit' name='addBook' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+          $temp="<td><form method='post'><button class ='button' type='submit' name='addBook' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
           echo $temp;
           $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
           echo $temp;

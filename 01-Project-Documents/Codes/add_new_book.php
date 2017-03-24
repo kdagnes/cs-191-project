@@ -48,22 +48,26 @@ if(isset($_POST['addNewBook'])){
     <link rel="stylesheet" href="style.css">
     <title>Add New Book</title>
   </head>
-<body>
+<body bgcolor="">
   <?php include "menu.php" ?>
   <div>
-    <form action='add_book.php'><button>Back</button></form>
+    <form action='add_book.php'><button class="button1">Back</button></form>
   </div>
+
   <form method='post'>
-    <div class='add_new_book'>
-      Title: <br><input type='text' name='title' class='add_new_book_input' required></input><br>
-      Author: <br><input type='text' name='author' class='add_new_book_input' required></input><br>
-      Year: <br><input type='number' name='year' min='0' class='add_new_book_input' required></input><br>
-      Publisher: <br><input type='text' name='publisher' class='add_new_book_input' required></input><br>
-      Genre: <br><input type='text' name='genre' class='add_new_book_input'></input><br>
-      Subject: <br><input type='text' name='subject' class='add_new_book_input'></input><br>
-      <br>
-      <button type='submit' name='addNewBook'>Add</button>
+    <div style="float:center; width:50%;  margin:0 auto;">
+	<h2>Input the book details</h2>
+	<p>
+      Title: <br><input type='text' name='title' required></input><br>
+      Author: <br><input type='text' name='author' required></input><br>
+      Year: <br><input type='number' name='year' min='0' required></input><br>
+      Publisher: <br><input type='text' name='publisher' required></input><br>
+      Genre: <br><input type='text' name='genre'></input><br>
+      Subject: <br><input type='text' name='subject'></input><br><br>
+		<button type='submit' name='addNewBook' class='button1'>Add</button>
+	  </p>
     </div>
+    
   </form>
 </body>
 </html>

@@ -1,10 +1,8 @@
 <?php
-
 $conn = new mysqli("localhost", "root", "Karen_02", "bookup");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 ?>
 
 

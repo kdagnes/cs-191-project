@@ -42,36 +42,35 @@ if(isset($_POST['removeBook'])){
     <title>My Books</title>
   </head>
 <body>
-  <?php include "menu.php" ?>
+   <?php include "menu.php" ?>
+  
+	  
   <script>document.getElementById('my_book').className+=" active"</script>
   <div>
-    <form action='add_book.php'><button>Add Book</button></form>
+    <form action='add_book.php'><button class="button1">Add Book</button></form>
   </div>
-  <br>
-  <br>
-  <table style='width:50%'>
+  <table>
     <caption>My Books</caption>
     <tr>
-      <th>Title</th><th>Remove from My Books</th>
+      <th><p>Title</p></th><th>Remove</th> </p>
     </tr>
     <?php
     $sqlGetMyBooks="SELECT * FROM `MyBooks` WHERE `user`='".$_SESSION['user']."'";
     $resultGetMyBooks=$conn->query($sqlGetMyBooks);
     if($resultGetMyBooks){
       if($resultGetMyBooks->num_rows==0){
-        echo "<tr><td colspan='99'>No Books</td></tr>";
+        echo "<tr><td colspan='99'>Books</td></tr>";
       }
       else{
         while($rowGetMyBooks=$resultGetMyBooks->fetch_assoc()){
           $myBook=$rowGetMyBooks['bookID'];
-
           $sqlGetMyBook="SELECT * FROM `Books` WHERE `bookID`='".$myBook."'";
           $resultGetMyBook=$conn->query($sqlGetMyBook);
           $rowGetMyBook=$resultGetMyBook->fetch_assoc();
           echo "<tr>";
-          $temp="<td>".$rowGetMyBook['title']."</td>";
+          $temp="<td><p>".$rowGetMyBook['title']."</p></td>";
           echo $temp;
-          $temp="<td><form method='post'><button type='submit' value='".$rowGetMyBooks['ownID']."' name='removeBook'>&times;</button></form></td>";
+          $temp="<td><form method='post'><button class='button' type='submit' value='".$rowGetMyBooks['ownID']."' name='removeBook'>&times;</button></form></td>";
           echo $temp;
           echo "</tr>";
         }

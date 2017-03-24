@@ -1,7 +1,6 @@
 <!--
 Author: Karen Margaret D. Agnes
 “This is a course requirement for CS 192 Software Engineering II under the supervision of Asst. Prof. Ma. Rowena C. Solamo of the Department of Computer Science, College of Engineering, University of the Philippines, Diliman for the AY 2015-2016”.
-
 CODE HISTORY
 Programmer: Karen Agnes
 Change Date: February 2, 2017
@@ -13,12 +12,10 @@ Development Group: The A-Team
 Purpose: Creation of account.
 -->
 <?php
-
 $conn = new mysqli("localhost", "root", "Karen_02", "bookup");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 ?>
 
 
@@ -37,7 +34,6 @@ if(empty($_POST['username']) or empty($_POST['password']) or empty($_POST['name'
 	echo "<script>alert('$temp'); window.location.href='account.php'</script>";
 			exit();
 }
-
 /*inserting values to accounts*/
 $sql = "INSERT INTO accounts (username, password, name,email,mobile)
 VALUES ('".$_POST['username']."', '".$_POST['password']."','".$_POST['name']."','".$_POST['email']."','".$_POST['mobile']."')";
@@ -47,8 +43,6 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
-
 ?>
 
 </body>
