@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2017 at 04:44 PM
+-- Generation Time: Mar 24, 2017 at 02:38 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.25
 
@@ -39,6 +39,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`username`, `password`, `name`, `email`, `mobile`) VALUES
+('hello', 'hello', 'hello', 'hello', 123),
 ('karen', 'karen', 'karen', 'karen', 123),
 ('karen1', 'sad', 'karen', 'karen', 123),
 ('test', 'test', 'test', 'test', 914343);
@@ -94,7 +95,9 @@ CREATE TABLE `mybooks` (
 --
 
 INSERT INTO `mybooks` (`ownID`, `user`, `bookID`) VALUES
-(5, 'karen', 1);
+(8, 'test', 4),
+(9, 'test', 10),
+(10, 'karen', 1);
 
 -- --------------------------------------------------------
 
@@ -117,8 +120,7 @@ CREATE TABLE `tradematches` (
 --
 
 INSERT INTO `tradematches` (`user1`, `book1`, `user2`, `book2`, `confirm1`, `confirm2`, `matchID`) VALUES
-('karen', 2, 'test', 1, 1, 1, 6),
-('test', 1, 'karen1', 2, 1, 1, 7);
+('test', 1, 'karen', 10, 1, 1, 15);
 
 -- --------------------------------------------------------
 
@@ -175,17 +177,17 @@ ALTER TABLE `traderequests`
 -- AUTO_INCREMENT for table `mybooks`
 --
 ALTER TABLE `mybooks`
-  MODIFY `ownID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ownID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tradematches`
 --
 ALTER TABLE `tradematches`
-  MODIFY `matchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `matchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `traderequests`
 --
 ALTER TABLE `traderequests`
-  MODIFY `requestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `requestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
