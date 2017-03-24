@@ -48,7 +48,7 @@ if(isset($_POST['addNewBook'])){
     <link rel="stylesheet" href="style.css">
     <title>Add New Book</title>
   </head>
-<body bgcolor="">
+<body>
   <?php include "menu.php" ?>
   <div>
     <form action='add_book.php'><button class="button1">Back</button></form>
@@ -67,7 +67,7 @@ if(isset($_POST['addNewBook'])){
 		<button type='submit' name='addNewBook' class='button1'>Add</button>
 	  </p>
     </div>
-    
+
   </form>
 </body>
 </html>

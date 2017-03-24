@@ -52,6 +52,7 @@ if(isset($_POST['tradeOut'])){
     <title>Add Trade Request</title>
   </head>
 <body>
+  <?php include "menu.php"; ?>
   <div>
     <form action='trade_request.php'><button class = "button1">Back</button></form>
   </div>
@@ -100,7 +101,7 @@ if(isset($_POST['tradeOut'])){
           echo "<tr>";
           $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
           echo $temp;
-          $temp="<td><form method='post'><input type='hidden' name='hidden' value='".$_POST['tradeIn']."'><button type='submit' name='tradeOut' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+          $temp="<td><form method='post'><input type='hidden' name='hidden' value='".$_POST['tradeIn']."'><button class='button' type='submit' name='tradeOut' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
           echo $temp;
           echo "</tr>";
         }

@@ -42,9 +42,7 @@ if(isset($_POST['removeBook'])){
     <title>My Books</title>
   </head>
 <body>
-   <?php include "menu.php" ?>
-  
-	  
+  <?php include "menu.php" ?>  
   <script>document.getElementById('my_book').className+=" active"</script>
   <div>
     <form action='add_book.php'><button class="button1">Add Book</button></form>

@@ -44,6 +44,7 @@ if(isset($_POST['deleteTradeRequest'])){
   </head>
 <body>
     <?php include "menu.php" ?>
+    <script>document.getElementById('trade_request').className+=" active"</script>
   <div>
 
     <form action='add_trade_request.php'><button class = "button1">Add Trade Request</button></form>

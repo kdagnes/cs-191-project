@@ -28,9 +28,8 @@ if ($conn->connect_error) {
 
 </head>
 <body>
-
   <?php include "menu.php" ?>
-
+  <script>document.getElementById('confirmed_trade').className+=" active"</script>
   <table>
     <caption>Ready to Trade Books</caption>
     <tr>
@@ -56,9 +55,9 @@ if ($conn->connect_error) {
 				$bookTradeOut = $rowGetTradeMatch['book1'];
 				$bookTrader = $rowGetTradeMatch['user1'];
 			}
-       
+
 			echo "<tr>";
-			
+
 			echo "<td>".$bookTradeIn."</td><td>".$bookTradeOut."</td><td>".$bookTrader."</td>";
 			echo "</tr>";
         }

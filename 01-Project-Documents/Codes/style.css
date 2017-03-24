@@ -1,3 +1,20 @@
+/*  Code License
+Author: Matthew Aycocho
+This is a course requirement for CS 192 Software Engineering II under the
+supervision of Asst. Prof. Ma. Rowena C. Solamo of the Department of Computer
+Science, College of Engineering, University of the Philippines, Diliman for
+the AY 2016-2017.
+*/
+/*  Code History
+Name of Programmer; Change Date; Change Description
+Matthew Aycocho; Mar. 22, 2017; Initial code
+Karen Agnes; Mar. 24, 2017; UI for forms, login page
+*/
+/*
+File creation date: Mar. 22, 2017
+Development Group: The A-Team
+Purpose: style for the web pages
+*/
 .menu {
   list-style-type: none;
   position: fixed;
@@ -13,7 +30,7 @@ ul {
     margin: 0;
     padding: 0;
     width: 20%;
-    background-color: #ffe6cc;
+    background-color: #DCC7AA;
     position: fixed;
     height: 100%;
 	float: left;
@@ -60,18 +77,19 @@ li  a:hover, .active {
 caption {
 	font-family: Helvetica;
 	font-size:35px;
-	float: left;
+	float: center;
 	font-weight: bold;
 }
 
 p {
 	font-family: Verdana;
 	font-size: 15px;
-	
+
 }
 
 body {
   margin: 0;
+  background-color: #DCC7AA;
 }
 
 table {
@@ -86,10 +104,10 @@ th {
   color: white;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #f2f2f2;}
 
 tr:hover {
-  background-color: #DCC7AA;
+  background-color: #F7C331;
 }
 
 .button {
@@ -102,11 +120,11 @@ tr:hover {
     display: inline-block;
     font-size: 16px;
 	border-radius: 12px;
-	
+
 }
 
 .button:hover {
-    background-color:  #F7C331; /* Green */
+    /*background-color:  #F7C331; /* Green */
     color: white;
 }
 
@@ -139,7 +157,7 @@ tr:hover {
 h1 {
 	font-size: 150px;
 	color: white;
-	
+
 }
 
 
@@ -177,4 +195,3 @@ input[type=password], select {
     box-sizing: border-box;
 		text-indent: 10px;
 }
-
