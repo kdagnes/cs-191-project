@@ -10,6 +10,7 @@ Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Feb. 1, 2017; Initial code
 Matthew Aycocho; Feb. 16, 2017; Added session for user
 Matthew Aycocho; Mar. 3, 2017; Book titles are shown instead of book IDs
+Karen Agnes; April 4, 2017; Edited button design and column name
 -->
 <!--
 File creation date: Jan. 31, 2017
@@ -52,7 +53,7 @@ if(isset($_POST['deleteTradeRequest'])){
   <table>
     <caption>Trade Requests</caption>
     <tr>
-      <th>Book To Trade In</th><th>Book To Trade Out</th><th>Delete Trade Request</th>
+      <th>Book to Give</th><th>Book to Receive</th><th>Delete Trade Request</th>
     </tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
@@ -76,7 +77,7 @@ if(isset($_POST['deleteTradeRequest'])){
           $rowGetBookTradeOut=$resultGetBookTradeOut->fetch_assoc();
           $temp="<td>".$rowGetBookTradeOut['title']."</td>";
           echo $temp;
-          $temp="<td><form method='post'><button type='submit' value='".$rowGetTradeRequests['requestID']."' name='deleteTradeRequest'>&times;</button></form></td>";
+          $temp="<td><form method='post'><button class = 'button' type='submit' value='".$rowGetTradeRequests['requestID']."' name='deleteTradeRequest'>&times;</button></form></td>";
           echo $temp;
           echo "</tr>";
         }

@@ -5,6 +5,7 @@ CODE HISTORY
 Programmer: Karen Agnes
 Change Date: February 2, 2017
 Change Description: Code was created.
+Karen Agnes; April 4, 2017; Edited button design and column name
 -->
 <!--
 File Creation: February 2, 2017
@@ -91,7 +92,7 @@ if(isset($_POST['cancelTradeMatch'])){
 <table>
     <caption>Trade Matches</caption>
     <tr>
-      <th>Book To Trade In</th><th>Book To Trade Out</th><th>Trader</th><th>Confirm Trade Match</th>
+      <th>Book to Give</th><th>Book to Receive</th><th>Trader</th><th>Confirm Trade Match</th>
     </tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
@@ -116,7 +117,7 @@ if(isset($_POST['cancelTradeMatch'])){
 										 $resultCheckConfirm = $conn->query($sqlCheckConfirm);
 										if($resultCheckConfirm){
 											if($resultCheckConfirm->num_rows==0){
-											$temp =  "<button type='submit' value='".$rowGetTradeRequests['requestID']."' name='confirmTradeMatch'>&#10004;</button>
+											$temp =  "<button class='button' type='submit' value='".$rowGetTradeRequests['requestID']."' name='confirmTradeMatch'>&#10004;</button>
 						</form></td>";
 										 }
 										 else
