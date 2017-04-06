@@ -58,7 +58,7 @@ if(isset($_POST['tradeOut'])){
   </div>
   <?php if(!isset($_POST['tradeIn'])){ ?>
     <table>
-      <caption>Select book to trade in</caption>
+      <caption>Select Book to Give</caption>
       <tr>
         <th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
       </tr>
@@ -85,7 +85,7 @@ if(isset($_POST['tradeOut'])){
   <?php } ?>
   <?php if(isset($_POST['tradeIn'])){ ?>
   <table>
-    <caption>Select book to trade out</caption>
+    <caption>Select Book to Receive</caption>
     <tr>
       <th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
     </tr>
