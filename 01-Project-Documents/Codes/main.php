@@ -37,7 +37,7 @@ if($conn->connect_error){
   To start of, you may click the <button class="button1">My books</button> option at the menu bar. It contains all your current books which you can trade. You can either add or remove books. <br><br>
   The <button class="button1">Trade Requests</button> option brings you to where you can request for a trade. You can choose whichever books that are available and request for a trade with the corresponding book you will give in return. <br><br>
   When you click the <button class="button1">Trade Matches</button> option, you can see if someone wants to trade with you. In here, you can confirm the trade match which means you are fully committed to trade with a fellow trader.<br><br>
-  Lastly, the <button class="button1">Ready to Trade</button> option shows you the final trades you are involved in.<br><br><br>
+  Finally, the <button class="button1">Ready to Trade Books</button> option shows you the final trades you are involved in.<br><br><br>
   And at the farther right of the menu bar, you can click the <button class="button1">Log Out</button> when you are done doing trades.<br>
   </p>
   </div>
