@@ -30,6 +30,7 @@ if($conn->connect_error){
   </head>
 <body>
   <?php include "menu.php" ?>
+  <script>document.getElementById('main').className+=" active"</script>
   <div style="background-color: #f2f2f2; width:90%; margin:auto; border:3px solid #6B7A8F; padding:10px; text-align: center;">
   <h2>Book UP is a book sharing app where book owners can easily find other book owners to exchange books and meet with other fellow book lovers. <br> <br>
   </h2> <p>
