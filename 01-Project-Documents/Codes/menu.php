@@ -8,6 +8,7 @@ the AY 2016-2017.
 <!--  Code History
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Mar. 22, 2017; Initial code
+Karen Agnes; April 4, 2017; Added Main at menu bar
 -->
 <!--
 File creation date: Mar. 22, 2017
@@ -17,7 +18,7 @@ Purpose: displays the menu header
 
     <link rel="stylesheet" href="style.css">
 <div class='menu'>
-	
+  <li><a href='main.php' id='main' class='menu_tab active'>Main</a></li>
   <li><a href='my_book.php' id='my_book' class='menu_tab active'>My Books</a></li>
   <li><a href='trade_request.php' id='trade_request' class='menu_tab active'>Trade Requests</a></li>
   <li><a href='trade_match.php' id='trade_match' class='menu_tab active'>Trade Matches</a></li>

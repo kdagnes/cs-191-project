@@ -28,7 +28,7 @@ Purpose: Display log in and create account.
 
 
  <form action="login.php" method="post"><p>
-<b> LOGIN</b> <br><br>
+<b> Welcome to Book Up!</b> <br><br>
 Username: <br>   <input type='text' name='username' placeholder='Username...'><br>
 Password: <br> <input type='password' name='password' placeholder='Password..'><br><br>
 <input type='submit' value='Log In' class="button1"> <br> <br></p>
@@ -51,9 +51,12 @@ Mobile:   <br><input type='text' name='mobile'> <br><br>
 
 <article>
 <div style="background-color: #F7882F; ">
- <h1>Book Up </h1>
 
+ <h1>Book Up</h1>
+</div>
+ <br> <p style="font-color:white;"> 	<br> The A-Team </p>
 </article>
+
 
 </body>
 </html>
