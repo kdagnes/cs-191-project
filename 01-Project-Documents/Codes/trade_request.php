@@ -53,7 +53,7 @@ if(isset($_POST['deleteTradeRequest'])){
   <table>
     <caption>Trade Requests</caption>
     <tr>
-      <th>Book to Give</th><th>Book to Receive</th><th>Delete Trade Request</th>
+      <th>Book to Receive</th><th>Book to Give</th><th>Delete Trade Request</th>
     </tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
