@@ -23,17 +23,18 @@ if ($conn->connect_error) {
 
 <html>
 <head>
- <link rel="stylesheet" href="style.css">
-<title> Book UP </title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
+<title>Ready-to-Trade Books</title>
 
 </head>
 <body>
   <?php include "menu.php" ?>
   <script>document.getElementById('confirmed_trade').className+=" active"</script>
   <table>
-    <caption>Ready to Trade Books</caption>
+    <caption>Ready-to-Trade Books</caption>
     <tr>
-      <th>Book to Give</th><th>Book to Receive</th><th>Trader</th>
+      <th>Book to Receive</th><th>Book to Give</th><th>Trader</th>
     </tr>
     <?php
 	  $sqlGetTradeMatch = "SELECT B1.title AS book1, B2.title AS book2, T.user1 AS user1, T.user2 AS user2 FROM TradeMatches T, books B1, books B2  WHERE T.book1 = B1.bookid AND T.book2 = B2.bookid AND confirm1 = 1 AND confirm2 = 1 AND (`user1`='".$_SESSION['user']."' OR `user2`='".$_SESSION['user']."')";

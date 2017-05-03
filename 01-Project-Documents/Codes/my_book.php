@@ -39,10 +39,11 @@ if(isset($_POST['removeBook'])){
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
     <title>My Books</title>
   </head>
 <body>
-  <?php include "menu.php" ?>  
+  <?php include "menu.php" ?>
   <script>document.getElementById('my_book').className+=" active"</script>
   <div>
     <form action='add_book.php'><button class="button1">Add Book</button></form>

@@ -41,7 +41,8 @@ if(isset($_POST['deleteTradeRequest'])){
 <html>
   <head>
    <link rel="stylesheet" href="style.css">
-    <title>Trade Requests</title>
+   <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
+   <title>Trade Requests</title>
   </head>
 <body>
     <?php include "menu.php" ?>

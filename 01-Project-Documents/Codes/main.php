@@ -26,7 +26,8 @@ if($conn->connect_error){
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
-    <title>Book UP</title>
+    <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
+    <title>Book Up</title>
   </head>
 <body>
   <?php include "menu.php" ?>
@@ -41,7 +42,7 @@ if($conn->connect_error){
   And at the farther right of the menu bar, you can click the <button class="button1">Log Out</button> when you are done doing trades.<br>
   </p>
   </div>
-  
+
 </body>
 </html>
 <?php $conn->close(); ?>

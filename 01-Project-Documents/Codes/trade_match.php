@@ -82,7 +82,8 @@ if(isset($_POST['cancelTradeMatch'])){
 <html>
 <head>
 <link rel="stylesheet" href="style.css">
-<title> Book UP </title>
+<link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
+<title>Trade Matches</title>
 
 </head>
 <body>
