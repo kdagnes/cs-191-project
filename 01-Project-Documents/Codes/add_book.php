@@ -34,22 +34,24 @@ if(isset($_POST['addBook'])){
     $sql="INSERT INTO `MyBooks` (`user`,`bookID`) VALUES ('".$_SESSION['user']."','".$_POST['addBook']."')";
     $result=$conn->query($sql);
     if($result){
-      $temp="Successfully added book";
+      //$temp="Successfully added book";
     }
     else{
       $temp="Failed to add book";
+      echo "<script>alert('$temp'); window.location.href='my_book.php'</script>";
     }
   }
-  echo "<script>alert('$temp'); window.location.href='my_book.php'</script>";
 }
 ?>
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
     <title>Add Book</title>
   </head>
 <body>
   <?php include "menu.php" ?>
+  <script>document.getElementById('my_book').className+=" active"</script>
   <div>
     <form action='my_book.php'><button class = "button1">Back</button></form>
     <form action='add_new_book.php'><button class = "button1">Add New Book</button></form>

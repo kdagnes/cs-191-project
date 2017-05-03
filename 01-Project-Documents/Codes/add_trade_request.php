@@ -37,30 +37,32 @@ if(isset($_POST['tradeOut'])){
     $sql="INSERT INTO `TradeRequests` (`user`,`tradeIn`,`tradeOut`) VALUES ('".$_SESSION['user']."','".$_POST['hidden']."','".$_POST['tradeOut']."')";
     $result=$conn->query($sql);
     if($result){
-      $temp="Successfully added trade request";
+      //$temp="Successfully added trade request";
     }
     else{
       $temp="Failed to add trade request";
+      echo "<script>alert('$temp'); window.location.href='trade_request.php'</script>";
     }
   }
-  echo "<script>alert('$temp'); window.location.href='trade_request.php'</script>";
 }
 ?>
 <html>
   <head>
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
     <title>Add Trade Request</title>
   </head>
 <body>
   <?php include "menu.php"; ?>
+  <script>document.getElementById('trade_request').className+=" active"</script>
   <div>
     <form action='trade_request.php'><button class = "button1">Back</button></form>
   </div>
   <?php if(!isset($_POST['tradeIn'])){ ?>
     <table>
-      <caption>Select Book to Give</caption>
+      <caption>Select Book to Receive</caption>
       <tr>
-        <th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
+        <th>Select</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th>
       </tr>
       <?php
       $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."')";
@@ -72,9 +74,9 @@ if(isset($_POST['tradeOut'])){
         else{
           while($rowGetBooks=$resultGetBooks->fetch_assoc()){
             echo "<tr>";
-            $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
-            echo $temp;
             $temp="<td><form method='post'><button class = 'button' type='submit' name='tradeIn' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+            echo $temp;
+            $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
             echo $temp;
             echo "</tr>";
           }
@@ -85,9 +87,9 @@ if(isset($_POST['tradeOut'])){
   <?php } ?>
   <?php if(isset($_POST['tradeIn'])){ ?>
   <table>
-    <caption>Select Book to Receive</caption>
+    <caption>Select Book to Give</caption>
     <tr>
-      <th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th><th>Select</th>
+      <th>Select</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th>
     </tr>
     <?php
     $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."') AND NOT(`bookID`='".$_POST['tradeIn']."')";
@@ -99,9 +101,9 @@ if(isset($_POST['tradeOut'])){
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){
           echo "<tr>";
-          $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
-          echo $temp;
           $temp="<td><form method='post'><input type='hidden' name='hidden' value='".$_POST['tradeIn']."'><button class='button' type='submit' name='tradeOut' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+          echo $temp;
+          $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
           echo $temp;
           echo "</tr>";
         }

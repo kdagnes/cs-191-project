@@ -46,10 +46,12 @@ if(isset($_POST['addNewBook'])){
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
     <title>Add New Book</title>
   </head>
 <body>
   <?php include "menu.php" ?>
+  <script>document.getElementById('my_book').className+=" active"</script>
   <div>
     <form action='add_book.php'><button class="button1">Back</button></form>
   </div>
