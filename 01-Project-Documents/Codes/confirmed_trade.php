@@ -36,7 +36,7 @@ if ($conn->connect_error) {
       <th>Book to Give</th><th>Book to Receive</th><th>Trader</th>
     </tr>
     <?php
-	  $sqlGetTradeMatch = "SELECT B1.title AS book1, B2.title AS book2, T.user1 AS user1, T.user2 AS user2 FROM TradeMatches T, books B1, books B2  WHERE T.book1 = B1.bookid AND T.book2 = B2.bookid AND (`user1`='".$_SESSION['user']."' OR `user2`='".$_SESSION['user']."')";
+	  $sqlGetTradeMatch = "SELECT B1.title AS book1, B2.title AS book2, T.user1 AS user1, T.user2 AS user2 FROM TradeMatches T, books B1, books B2  WHERE T.book1 = B1.bookid AND T.book2 = B2.bookid AND confirm1 = 1 AND confirm2 = 1 AND (`user1`='".$_SESSION['user']."' OR `user2`='".$_SESSION['user']."')";
   //  $sqlGetTradeMatch="SELECT * FROM `tradematches` WHERE `user1`='".$_SESSION['user']."' OR `user2`='".$_SESSION['user']."'";
     $resultGetTradeMatch=$conn->query($sqlGetTradeMatch);
     if($resultGetTradeMatch){
