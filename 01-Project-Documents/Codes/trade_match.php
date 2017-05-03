@@ -93,7 +93,7 @@ if(isset($_POST['cancelTradeMatch'])){
 <table>
     <caption>Trade Matches</caption>
     <tr>
-      <th>Book to Give</th><th>Book to Receive</th><th>Trader</th><th>Confirm Trade Match</th>
+      <th>Book to Receive</th><th>Book to Give</th><th>Trader</th><th>Confirm Trade Match</th>
     </tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
