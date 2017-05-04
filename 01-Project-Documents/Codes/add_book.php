@@ -8,6 +8,7 @@ the AY 2016-2017.
 <!--  Code History
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Mar. 2, 2017; Initial code
+Karen Agnes; Mar. 5, 2017; modified button positions
 -->
 <!--
 File creation date: Feb. 16, 2017
@@ -52,15 +53,15 @@ if(isset($_POST['addBook'])){
 <body>
   <?php include "menu.php" ?>
   <script>document.getElementById('my_book').className+=" active"</script>
-  <div>
-    <form action='my_book.php'><button class = "button1">Back</button></form>
-    <form action='add_new_book.php'><button class = "button1">Add New Book</button></form>
-  </div>
+
   <table>
-    <caption>Select book</caption>
+    <caption>Select a Book</caption>
     <tr>
       <th>Select</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th>
     </tr>
+	<tr>
+	<td><form action='add_new_book.php'><button class="button add">+</button></form> </td><td>Add more books to our database!</td>
+	</tr>
     <?php
     $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."')";
     $resultGetBooks=$conn->query($sqlGetBooks);
@@ -71,7 +72,7 @@ if(isset($_POST['addBook'])){
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){
           echo "<tr>";
-          $temp="<td><form method='post'><button class ='button' type='submit' name='addBook' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+          $temp="<td><form method='post'><button class ='button confirm' type='submit' name='addBook' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
           echo $temp;
           $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
           echo $temp;

@@ -47,15 +47,15 @@ if(isset($_POST['deleteTradeRequest'])){
 <body>
     <?php include "menu.php" ?>
     <script>document.getElementById('trade_request').className+=" active"</script>
-  <div>
 
-    <form action='add_trade_request.php'><button class = "button1">Add Trade Request</button></form>
-  </div>
   <table>
     <caption>Trade Requests</caption>
     <tr>
-      <th>Book to Receive</th><th>Book to Give</th><th>Delete Trade Request</th>
+      <th>Select</th><th>Book to Receive</th><th>Book to Give</th>
     </tr>
+	<tr>
+	<td><form action='add_trade_request.php'><button class="button add">+</button></form> </td><td>Request for book trades!</td>
+	</tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
     $resultGetTradeRequests=$conn->query($sqlGetTradeRequests);
@@ -71,6 +71,8 @@ if(isset($_POST['deleteTradeRequest'])){
           $resultGetBookTradeIn=$conn->query($sqlGetBookTradeIn);
           $rowGetBookTradeIn=$resultGetBookTradeIn->fetch_assoc();
           echo "<tr>";
+		     $temp="<td><form method='post'><button class = 'button cancel' type='submit' value='".$rowGetTradeRequests['requestID']."' name='deleteTradeRequest'>&times;</button></form></td>";
+          echo $temp;
           $temp="<td>".$rowGetBookTradeIn['title']."</td>";
           echo $temp;
           $sqlGetBookTradeOut="SELECT * FROM `Books` WHERE `bookID`='".$bookTradeOut."'";
@@ -78,8 +80,7 @@ if(isset($_POST['deleteTradeRequest'])){
           $rowGetBookTradeOut=$resultGetBookTradeOut->fetch_assoc();
           $temp="<td>".$rowGetBookTradeOut['title']."</td>";
           echo $temp;
-          $temp="<td><form method='post'><button class = 'button' type='submit' value='".$rowGetTradeRequests['requestID']."' name='deleteTradeRequest'>&times;</button></form></td>";
-          echo $temp;
+       
           echo "</tr>";
         }
       }

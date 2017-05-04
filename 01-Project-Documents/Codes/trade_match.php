@@ -93,7 +93,7 @@ if(isset($_POST['cancelTradeMatch'])){
 <table>
     <caption>Trade Matches</caption>
     <tr>
-      <th>Book to Receive</th><th>Book to Give</th><th>Trader</th><th>Confirm Trade Match</th>
+      <th>Book to Receive</th><th>Book to Give</th><th>Trader</th><th>Confirm</th>
     </tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
@@ -118,14 +118,14 @@ if(isset($_POST['cancelTradeMatch'])){
 										 $resultCheckConfirm = $conn->query($sqlCheckConfirm);
 										if($resultCheckConfirm){
 											if($resultCheckConfirm->num_rows==0){
-											$temp =  "<button class='button' type='submit' value='".$rowGetTradeRequests['requestID']."' name='confirmTradeMatch'>&#10004;</button>
+											$temp =  "<button class='button confirm' type='submit' value='".$rowGetTradeRequests['requestID']."' name='confirmTradeMatch'>&#10004;</button>
 						</form></td>";
 										 }
 										 else
 										 {
 											while($rowCheckConfirm=$resultCheckConfirm->fetch_assoc()){
 											$temp =  "<form method = 'post'>
-											<button type='submit' value='".$rowCheckConfirm['matchID']."' name='cancelTradeMatch'>Cancel Confirmation</button>
+											<button class='button cancel'type='submit' value='".$rowCheckConfirm['matchID']."' name='cancelTradeMatch'>Cancel Confirmation</button>
 											</form></td>";
 											}
 										 }

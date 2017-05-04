@@ -9,6 +9,7 @@ the AY 2016-2017.
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Mar. 2, 2017; Initial code
 Matthew Aycocho; Mar. 3, 2017; Book titles are shown instead of book IDs
+Karen Agnes; Mar. 5, 2017; modified button positions
 -->
 <!--
 File creation date: Feb. 16, 2017
@@ -36,29 +37,35 @@ if(isset($_POST['removeBook'])){
   }
 }
 ?>
+
+
+</style>
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
-    <title>My Books</title>
+    <title>MY BOOKS</title>
   </head>
 <body>
   <?php include "menu.php" ?>
   <script>document.getElementById('my_book').className+=" active"</script>
   <div>
-    <form action='add_book.php'><button class="button1">Add Book</button></form>
+   
   </div>
   <table>
-    <caption>My Books</caption>
+    <caption>MY BOOKS	</caption>
     <tr>
-      <th><p>Title</p></th><th>Remove</th> </p>
+      <th><p>Select</p></th><th>Title</th> </p>
     </tr>
+	<tr>
+	<td><form action='add_book.php'><button class="button add">+</button></form> </td><td>Add more books to my book list!</td>
+	</tr>
     <?php
     $sqlGetMyBooks="SELECT * FROM `MyBooks` WHERE `user`='".$_SESSION['user']."'";
     $resultGetMyBooks=$conn->query($sqlGetMyBooks);
     if($resultGetMyBooks){
       if($resultGetMyBooks->num_rows==0){
-        echo "<tr><td colspan='99'>Books</td></tr>";
+        echo "<tr><td colspan='99'>No Books</td></tr>";
       }
       else{
         while($rowGetMyBooks=$resultGetMyBooks->fetch_assoc()){
@@ -66,16 +73,20 @@ if(isset($_POST['removeBook'])){
           $sqlGetMyBook="SELECT * FROM `Books` WHERE `bookID`='".$myBook."'";
           $resultGetMyBook=$conn->query($sqlGetMyBook);
           $rowGetMyBook=$resultGetMyBook->fetch_assoc();
-          echo "<tr>";
+          
+		  
+		  echo "<tr>";
+		  $temp="<td><form method='post'><button class='button cancel' type='submit' value='".$rowGetMyBooks['ownID']."' name='removeBook'>&times;</button></form></td>";
+          echo $temp;
           $temp="<td><p>".$rowGetMyBook['title']."</p></td>";
           echo $temp;
-          $temp="<td><form method='post'><button class='button' type='submit' value='".$rowGetMyBooks['ownID']."' name='removeBook'>&times;</button></form></td>";
-          echo $temp;
+          
           echo "</tr>";
         }
       }
     }
     ?>
+		
   </table>
 </body>
 </html>

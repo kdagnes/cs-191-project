@@ -37,7 +37,8 @@ if(isset($_POST['tradeOut'])){
     $sql="INSERT INTO `TradeRequests` (`user`,`tradeIn`,`tradeOut`) VALUES ('".$_SESSION['user']."','".$_POST['hidden']."','".$_POST['tradeOut']."')";
     $result=$conn->query($sql);
     if($result){
-      //$temp="Successfully added trade request";
+      $temp="Successfully added trade request";
+	  echo "<script>alert('$temp'); window.location.href='trade_request.php'</script>";
     }
     else{
       $temp="Failed to add trade request";
@@ -55,9 +56,7 @@ if(isset($_POST['tradeOut'])){
 <body>
   <?php include "menu.php"; ?>
   <script>document.getElementById('trade_request').className+=" active"</script>
-  <div>
-    <form action='trade_request.php'><button class = "button1">Back</button></form>
-  </div>
+ 
   <?php if(!isset($_POST['tradeIn'])){ ?>
     <table>
       <caption>Select Book to Receive</caption>
@@ -74,7 +73,7 @@ if(isset($_POST['tradeOut'])){
         else{
           while($rowGetBooks=$resultGetBooks->fetch_assoc()){
             echo "<tr>";
-            $temp="<td><form method='post'><button class = 'button' type='submit' name='tradeIn' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+            $temp="<td><form method='post'><button class = 'button confirm' type='submit' name='tradeIn' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
             echo $temp;
             $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
             echo $temp;
@@ -101,7 +100,7 @@ if(isset($_POST['tradeOut'])){
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){
           echo "<tr>";
-          $temp="<td><form method='post'><input type='hidden' name='hidden' value='".$_POST['tradeIn']."'><button class='button' type='submit' name='tradeOut' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
+          $temp="<td><form method='post'><input type='hidden' name='hidden' value='".$_POST['tradeIn']."'><button class='button confirm' type='submit' name='tradeOut' value='".$rowGetBooks['bookID']."'>&plus;</button></form></td>";
           echo $temp;
           $temp="<td>".$rowGetBooks['title']."</td><td>".$rowGetBooks['author']."</td><td>".$rowGetBooks['year']."</td><td>".$rowGetBooks['publisher']."</td><td>".$rowGetBooks['genre']."</td><td>".$rowGetBooks['subject']."</td>";
           echo $temp;
