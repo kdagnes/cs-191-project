@@ -56,18 +56,16 @@ if(isset($_POST['addNewBook'])){
     <form action='add_book.php'><button class="button1">Back</button></form>
   </div>
 
-  <form method='post'>
-    <div style="float:center; width:50%;  margin:0 auto;">
-	<h2>Input the book details</h2>
-	<p>
-      Title: <br><input type='text' name='title' required></input><br>
-      Author: <br><input type='text' name='author' required></input><br>
-      Year: <br><input type='number' name='year' min='0' required></input><br>
-      Publisher: <br><input type='text' name='publisher' required></input><br>
-      Genre: <br><input type='text' name='genre'></input><br>
-      Subject: <br><input type='text' name='subject'></input><br><br>
-		<button type='submit' name='addNewBook' class='button1'>Add</button>
-	  </p>
+  <div style='margin-left:25%;width:50%' class='form'>
+    <form method='post'>
+      <br><a class='form-header'>Input the book details</a><br><br><br>
+      <input type='text' name='title' placeholder='Title...' class='input' required></input>
+      <input type='text' name='author' placeholder='Author...' class='input' required></input>
+      <input type='number' name='year' min='0' placeholder='Year...' class='input' required></input>
+      <input type='text' name='publisher' placeholder='Publisher...' class='input' required></input>
+      <input type='text' name='genre' placeholder='Genre...' class='input'></input>
+      <input type='text' name='subject' placeholder='Subject...' class='input'></input>
+		  <br><button type='submit' name='addNewBook' class='button1'>Add Book</button>
     </div>
 
   </form>

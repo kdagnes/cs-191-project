@@ -19,14 +19,21 @@ Purpose: displays the menu header
 
 <link rel="stylesheet" href="style.css">
 <div class='menu'>
-  <li style='float:left'><a href='home.php'><img src="book-up-menu-logo.png" alt="Book Up"></a></li>
+  <li style='float:left'><a href='home.php'><img src="book-up-menu-logo.png" alt="Book Up" style='height:80px'></a></li>
   <br><br><br>
-  <li style='float:right;'><a href='logout.php'>LOG OUT</a></li>
+  <?php
+    if(isset($_SESSION['user'])){
+      echo "<li style='float:right;'><a href='logout.php'>Log Out</a></li>";
+    }
+    else{
+      echo "<li style='float:right'><a href='account.php' id='login' class='menu_tab active'>Log In</a></li>";
+    }
+  ?>
   <li style='float:right'><a href='confirmed_trade.php' id='confirmed_trade' class='menu_tab active'>Ready-to-Trade Books</a></li>
   <li style='float:right'><a href='trade_match.php' id='trade_match' class='menu_tab active'>Trade Matches</a></li>
   <li style='float:right'><a href='trade_request.php' id='trade_request' class='menu_tab active'>Trade Requests</a></li>
   <li style='float:right'><a href='my_book.php' id='my_book' class='menu_tab active'>My Books</a></li>
-  <li style='float:right'><a href='home.php' id='main' class='menu_tab active'>Home</a></li>
+  <li style='float:right'><a href='home.php' id='home' class='menu_tab active'>Home</a></li>
 </div>
 <script>
 var i,x;

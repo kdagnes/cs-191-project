@@ -48,6 +48,41 @@ li a:hover {
   color: #000000;
 }
 
+.bigbutton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  margin: 10px 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 40%;
+	height: 40%;
+}
+
+.bigbutton1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #ff9c4c;
+}
+
+.bigbutton1:hover {
+  background-color: #ff9c4c;
+  color: white;
+}
+
+.span1{
+	font-size:35px;
+}
+.span2{
+	font-size:15px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -175,35 +210,41 @@ h1 {
 
 }
 
-input[type=text], select {
-  width: 85%;
-  padding: 5px 0px;
-  margin: 2px 5px;
-  display: inline-block;
-  box-sizing: border-box;
-	text-indent: 10px;
-	border: #F7882F;
-  border-radius: 4px;
+.form {
+  width: 30%;
+  margin-top: 50px;
+  margin-left: 35%;
+  text-align: center;
+  background-color: #fafafa;
+  border-style: solid;
+  border-color: #aaaaaa;
+  border-width: thin;
+}
+.input {
+  font-size: 16px;
+  border-style: solid;
+  border-color: #444444;
+  border-width: thin;
+  font-family: Arial;
+  padding: 10px;
+  margin: 5px;
+  width: 60%;
+}
+.form-header {
+  font-size: 22px;
+  font-family: Arial;
+  color: #444444;
+}
+.input:focus{
+  border-color: #ff9c4c;
 }
 
-input[type=number], select {
-  width: 85%;
-  padding: 5px 0px;
-  margin: 2px 5px;
-  display: inline-block;
-  box-sizing: border-box;
-	text-indent: 10px;
-	border: #F7882F;
-  border-radius: 4px;
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-input[type=password], select {
-  width: 85%;
-  padding: 5px 0px;
-   margin: 2px 5px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-	text-indent: 10px;
+input[type=number] {
+    -moz-appearance:textfield;
 }

@@ -9,7 +9,8 @@ the AY 2016-2017.
 Name of Programmer; Change Date; Change Description
 Matthew Aycocho; Feb. 16, 2017; Initial code
 Karen Agnes; April 4, 2017; States tutorial
-Matthew Aycocho; May 3, 2017; changed file name from main.php to home.php
+Matthew Aycocho; May 3, 2017; Changed file name from main.php to home.php
+Karen Agnes; May 5, 2017; Made buttons with description
 -->
 <!--
 File creation date: Feb. 16, 2017
@@ -18,7 +19,6 @@ Purpose: home page
 -->
 <?php
 session_start();
-if(!isset($_SESSION['user'])){header("location:account.php");die();}
 $conn=new mysqli("localhost","root","Karen_02","bookup");
 if($conn->connect_error){
   die("Connection failed: ".$conn->connect_error);
@@ -32,16 +32,16 @@ if($conn->connect_error){
   </head>
 <body>
   <?php include "menu.php" ?>
-  <script>document.getElementById('main').className+=" active"</script>
-  <div style="background-color: #f2f2f2; width:90%; margin:auto; border:3px solid #6B7A8F; padding:10px; text-align: center;">
-  <h2>Book UP is a book sharing app where book owners can easily find other book owners to exchange books and meet with other fellow book lovers. <br> <br>
-  </h2> <p>
-  To start of, you may click the <button class="button1">My books</button> option at the menu bar. It contains all your current books which you can trade. You can either add or remove books. <br><br>
-  The <button class="button1">Trade Requests</button> option brings you to where you can request for a trade. You can choose whichever books that are available and request for a trade with the corresponding book you will give in return. <br><br>
-  When you click the <button class="button1">Trade Matches</button> option, you can see if someone wants to trade with you. In here, you can confirm the trade match which means you are fully committed to trade with a fellow trader.<br><br>
-  Finally, the <button class="button1">Ready to Trade Books</button> option shows you the final trades you are involved in.<br><br><br>
-  And at the farther right of the menu bar, you can click the <button class="button1">Log Out</button> when you are done doing trades.<br>
-  </p>
+  <script>document.getElementById('home').className+=" active"</script>
+  <div style="background-color: white; width:90%; margin:auto; border:3px solid white; padding:10px; text-align: center;">
+		<a  href="my_book.php"><button class="bigbutton bigbutton1"><span class="span1">MY BOOKS</span><br>
+											<span class="span2">Share the books you have right now!</span></button></a>
+        <a href="trade_request.php"><button class="bigbutton bigbutton1"><span class="span1">TRADE REQUESTS</span><br>
+											<span class="span2">Search for the books you want!</span></button></a>
+		<a href="trade_match.php"><button class="bigbutton bigbutton1"><span class="span1">TRADE MATCHES</span><br>
+											<span class="span2">See and confirm potential trades!</span></button></a>
+		<a href="confirmed_trade.php"><button class="bigbutton bigbutton1"><span class="span1">READY-TO-TRADE BOOKS</span><br>
+											<span class="span2">Look through your final trades!</span></button></a>
   </div>
 
 </body>
