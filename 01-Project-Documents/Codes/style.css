@@ -129,14 +129,13 @@ tr:hover {
   background-color: #ff9c4c;
 }
 th, td {
-    text-align: center;
-    padding: 8px;
+  text-align: center;
+  padding: 8px;
 }
 
 
 
 .button {
- 
   border: 15px;
   color: white;
   padding: 5px 10px;
@@ -145,7 +144,6 @@ th, td {
   display: inline-block;
   font-size: 16px;
 	border-radius: 12px;
-
 }
 
 .button:hover {
@@ -195,59 +193,26 @@ h1 {
 
 }
 
-input[type=text], select {
-  width: 85%;
-  padding: 5px 0px;
-  margin: 2px 5px;
-  display: inline-block;
-  box-sizing: border-box;
-	text-indent: 10px;
-	border: #F7882F;
-  border-radius: 4px;
-}
-
-input[type=number], select {
-  width: 85%;
-  padding: 5px 0px;
-  margin: 2px 5px;
-  display: inline-block;
-  box-sizing: border-box;
-	text-indent: 10px;
-	border: #F7882F;
-  border-radius: 4px;
-}
-
-input[type=password], select {
-  width: 85%;
-  padding: 5px 0px;
-   margin: 2px 5px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-	text-indent: 10px;
-}
-
 .bigbutton {
-    background-color: #fafafa; /* Green */
-    border: none;
-    color: white;
-    padding: 20px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    
-    margin: 10px 10px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-	width: 40%;
+  background-color: #fafafa; /* Green */
+  border: none;
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  margin: 10px 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 40%;
 	height: 40%;
 }
 
 .bigbutton1 {
-    background-color: #fafafa; 
-    color: black; 
+    background-color: #fafafa;
+    color: black;
     border: 2px solid #ff9c4c;
 }
 
@@ -261,4 +226,43 @@ input[type=password], select {
 }
 .span2{
 	font-size:15px;
+}
+
+.form {
+  width: 30%;
+  margin-top: 50px;
+  margin-left: 35%;
+  text-align: center;
+  background-color: #fafafa;
+  border-style: solid;
+  border-color: #aaaaaa;
+  border-width: thin;
+}
+.input {
+  font-size: 16px;
+  border-style: solid;
+  border-color: #444444;
+  border-width: thin;
+  font-family: Arial;
+  padding: 10px;
+  margin: 5px;
+  width: 60%;
+}
+.form-header {
+  font-size: 22px;
+  font-family: Arial;
+  color: #444444;
+}
+.input:focus{
+  border-color: #ff9c4c;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
