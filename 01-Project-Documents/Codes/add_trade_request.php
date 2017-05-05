@@ -37,8 +37,10 @@ if(isset($_POST['tradeOut'])){
     $sql="INSERT INTO `TradeRequests` (`user`,`tradeIn`,`tradeOut`) VALUES ('".$_SESSION['user']."','".$_POST['hidden']."','".$_POST['tradeOut']."')";
     $result=$conn->query($sql);
     if($result){
-      $temp="Successfully added trade request";
-	  echo "<script>alert('$temp'); window.location.href='trade_request.php'</script>";
+      //$temp="Successfully added trade request";
+	  //echo "<script>alert('$temp'); window.location.href='trade_request.php'</script>";
+      header("location:trade_request.php");
+      die();
     }
     else{
       $temp="Failed to add trade request";
