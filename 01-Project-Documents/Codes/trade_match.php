@@ -97,7 +97,7 @@ if(isset($_POST['cancelTradeMatch'])){
       <th>Book to Receive</th><th>Book to Give</th><th>Trader</th><th>Confirm</th>
     </tr>
     <?php
-    $sqlGetTradeRequests="SELECT * FROM `TradeMatches` WHERE `user1`='".$_SESSION['user']."' or `user2`='".$_SESSION['user']."'";
+    $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
     $resultGetTradeRequests=$conn->query($sqlGetTradeRequests);
     if($resultGetTradeRequests){
       if($resultGetTradeRequests->num_rows==0){

@@ -36,7 +36,7 @@ if(empty($_POST['username']) or empty($_POST['password']) or empty($_POST['name'
 }
 // check if username already exists
 $sql = "SELECT * FROM accounts WHERE username='".$_POST['username']."'";
-if($conn->query($sql) == TRUE){
+if($conn->query($sql) === TRUE){
   $temp = "Failed to create an account. Username already exists.";
   echo "<script>alert('$temp'); window.location.href='account.php'</script>";
   die();
