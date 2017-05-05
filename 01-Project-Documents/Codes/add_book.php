@@ -60,7 +60,7 @@ if(isset($_POST['addBook'])){
       <th>Select</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th>
     </tr>
 	<tr>
-	<td><form action='add_new_book.php'><button class="button add">+</button></form> </td><td>Add more books to our database!</td>
+	<td><form action='add_new_book.php'><button class="button add">+</button></form></td><td colspan='99'>Add more books to our database!</td>
 	</tr>
     <?php
     $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` NOT IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."')";

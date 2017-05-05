@@ -56,7 +56,7 @@ if(isset($_POST['tradeOut'])){
 <body>
   <?php include "menu.php"; ?>
   <script>document.getElementById('trade_request').className+=" active"</script>
- 
+
   <?php if(!isset($_POST['tradeIn'])){ ?>
     <table>
       <caption>Select Book to Receive</caption>
@@ -90,12 +90,13 @@ if(isset($_POST['tradeOut'])){
     <tr>
       <th>Select</th><th>Title</th><th>Author</th><th>Year</th><th>Publisher</th><th>Genre</th><th>Subject</th>
     </tr>
+    <td><form action='add_book.php'><button class="button add">+</button></form></td><td colspan='99'>Add more books to my book list!</td>
     <?php
     $sqlGetBooks="SELECT * FROM `Books` WHERE `bookID` IN (SELECT `bookID` FROM `MyBooks` WHERE `user`='".$_SESSION['user']."') AND NOT(`bookID`='".$_POST['tradeIn']."')";
     $resultGetBooks=$conn->query($sqlGetBooks);
     if($resultGetBooks){
       if($resultGetBooks->num_rows==0){
-        echo "<tr><td>No Books</td></tr>";
+        //echo "<tr><td colspan='99'>No Books</td></tr>";
       }
       else{
         while($rowGetBooks=$resultGetBooks->fetch_assoc()){

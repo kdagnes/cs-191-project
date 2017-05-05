@@ -38,34 +38,29 @@ if(isset($_POST['removeBook'])){
 }
 ?>
 
-
-</style>
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/x-con" href="book-up-logo.png">
-    <title>MY BOOKS</title>
+    <title>My Books</title>
   </head>
 <body>
   <?php include "menu.php" ?>
   <script>document.getElementById('my_book').className+=" active"</script>
-  <div>
-   
-  </div>
   <table>
-    <caption>MY BOOKS	</caption>
+    <caption>My Books</caption>
     <tr>
-      <th><p>Select</p></th><th>Title</th> </p>
+      <th>Select</th><th>Title</th>
     </tr>
 	<tr>
-	<td><form action='add_book.php'><button class="button add">+</button></form> </td><td>Add more books to my book list!</td>
+	<td><form action='add_book.php'><button class="button add">+</button></form></td><td colspan='99'>Add more books to my book list!</td>
 	</tr>
     <?php
     $sqlGetMyBooks="SELECT * FROM `MyBooks` WHERE `user`='".$_SESSION['user']."'";
     $resultGetMyBooks=$conn->query($sqlGetMyBooks);
     if($resultGetMyBooks){
       if($resultGetMyBooks->num_rows==0){
-        echo "<tr><td colspan='99'>No Books</td></tr>";
+        //echo "<tr><td colspan='99'>No Books</td></tr>";
       }
       else{
         while($rowGetMyBooks=$resultGetMyBooks->fetch_assoc()){
@@ -73,20 +68,20 @@ if(isset($_POST['removeBook'])){
           $sqlGetMyBook="SELECT * FROM `Books` WHERE `bookID`='".$myBook."'";
           $resultGetMyBook=$conn->query($sqlGetMyBook);
           $rowGetMyBook=$resultGetMyBook->fetch_assoc();
-          
-		  
+
+
 		  echo "<tr>";
 		  $temp="<td><form method='post'><button class='button cancel' type='submit' value='".$rowGetMyBooks['ownID']."' name='removeBook'>&times;</button></form></td>";
           echo $temp;
           $temp="<td><p>".$rowGetMyBook['title']."</p></td>";
           echo $temp;
-          
+
           echo "</tr>";
         }
       }
     }
     ?>
-		
+
   </table>
 </body>
 </html>

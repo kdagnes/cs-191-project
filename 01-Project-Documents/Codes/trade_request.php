@@ -45,8 +45,8 @@ if(isset($_POST['deleteTradeRequest'])){
    <title>Trade Requests</title>
   </head>
 <body>
-    <?php include "menu.php" ?>
-    <script>document.getElementById('trade_request').className+=" active"</script>
+  <?php include "menu.php" ?>
+  <script>document.getElementById('trade_request').className+=" active"</script>
 
   <table>
     <caption>Trade Requests</caption>
@@ -54,14 +54,14 @@ if(isset($_POST['deleteTradeRequest'])){
       <th>Select</th><th>Book to Receive</th><th>Book to Give</th>
     </tr>
 	<tr>
-	<td><form action='add_trade_request.php'><button class="button add">+</button></form> </td><td>Request for book trades!</td>
+	<td><form action='add_trade_request.php'><button class="button add">+</button></form></td><td colspan='99'>Request for book trades!</td>
 	</tr>
     <?php
     $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
     $resultGetTradeRequests=$conn->query($sqlGetTradeRequests);
     if($resultGetTradeRequests){
       if($resultGetTradeRequests->num_rows==0){
-        echo "<tr><td>No Trade Requests</td></tr>";
+        //echo "<tr><td>No Trade Requests</td></tr>";
       }
       else{
         while($rowGetTradeRequests=$resultGetTradeRequests->fetch_assoc()){
@@ -80,7 +80,7 @@ if(isset($_POST['deleteTradeRequest'])){
           $rowGetBookTradeOut=$resultGetBookTradeOut->fetch_assoc();
           $temp="<td>".$rowGetBookTradeOut['title']."</td>";
           echo $temp;
-       
+
           echo "</tr>";
         }
       }

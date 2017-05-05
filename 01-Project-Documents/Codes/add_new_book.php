@@ -52,9 +52,6 @@ if(isset($_POST['addNewBook'])){
 <body>
   <?php include "menu.php" ?>
   <script>document.getElementById('my_book').className+=" active"</script>
-  <div>
-    <form action='add_book.php'><button class="button1">Back</button></form>
-  </div>
 
   <div style='margin-left:25%;width:50%' class='form'>
     <form method='post'>

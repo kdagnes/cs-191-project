@@ -15,6 +15,7 @@ Purpose: Check correct log in input.
 
 <?php
 session_start();
+if(!isset($_SESSION['user'])){header("location:account.php");die();}
 $conn = new mysqli("localhost", "root", "Karen_02", "bookup");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -42,7 +43,7 @@ if ($conn->connect_error) {
     $resultGetTradeMatch=$conn->query($sqlGetTradeMatch);
     if($resultGetTradeMatch){
       if($resultGetTradeMatch->num_rows==0){
-        echo "<tr><td>No Ready to Trade Books</td></tr>";
+        echo "<tr><td colspan='99'>No ready-to-trade books</td></tr>";
       }
       else{
         while($rowGetTradeMatch=$resultGetTradeMatch->fetch_assoc()){

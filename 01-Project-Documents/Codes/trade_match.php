@@ -14,6 +14,7 @@ Purpose: Check correct log in input.
 -->
 <?php
 session_start();
+if(!isset($_SESSION['user'])){header("location:account.php");die();}
 $conn=new mysqli("localhost","root","Karen_02","bookup");
 if($conn->connect_error){
   die("Connection failed: ".$conn->connect_error);
@@ -96,11 +97,11 @@ if(isset($_POST['cancelTradeMatch'])){
       <th>Book to Receive</th><th>Book to Give</th><th>Trader</th><th>Confirm</th>
     </tr>
     <?php
-    $sqlGetTradeRequests="SELECT * FROM `TradeRequests` WHERE `user`='".$_SESSION['user']."'";
+    $sqlGetTradeRequests="SELECT * FROM `TradeMatches` WHERE `user1`='".$_SESSION['user']."' or `user2`='".$_SESSION['user']."'";
     $resultGetTradeRequests=$conn->query($sqlGetTradeRequests);
     if($resultGetTradeRequests){
       if($resultGetTradeRequests->num_rows==0){
-        echo "<tr><td>No Trade Matches</td></tr>";
+        echo "<tr><td colspan='99'>No trade matches</td></tr>";
       }
       else{
         while($rowGetTradeRequests=$resultGetTradeRequests->fetch_assoc()){

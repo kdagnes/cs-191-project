@@ -19,7 +19,6 @@ Purpose: home page
 -->
 <?php
 session_start();
-if(!isset($_SESSION['user'])){header("location:account.php");die();}
 $conn=new mysqli("localhost","root","Karen_02","bookup");
 if($conn->connect_error){
   die("Connection failed: ".$conn->connect_error);
@@ -34,7 +33,7 @@ if($conn->connect_error){
   </head>
 <body>
   <?php include "menu.php" ?>
-  <script>document.getElementById('main').className+=" active"</script>
+  <script>document.getElementById('home').className+=" active"</script>
   <div style="background-color: white; width:90%; margin:auto; border:3px solid white; padding:10px; text-align: center;">
 		<a  href="my_book.php"><button class="bigbutton bigbutton1"><span class="span1">MY BOOKS</span><br>
 											<span class="span2">Share the books you have right now!</span></button></a>

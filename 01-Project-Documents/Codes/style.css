@@ -116,6 +116,7 @@ table {
   width: 70%;
   overflow-x: auto;
   margin: auto;
+  font-family: Arial;
 }
 
 th {
@@ -126,14 +127,15 @@ th {
 tr:nth-child(even){background-color: #fafafa;}
 
 tr:hover {
-  background-color: #ff9c4c;
+  border-width: thin;
+  border-style: solid;
+  border-color: #ff9c4c;
 }
+
 th, td {
   text-align: center;
   padding: 8px;
 }
-
-
 
 .button {
   border: 15px;
@@ -171,7 +173,7 @@ th, td {
 }
 
 .button1 {
-  background-color: #6B7A8F; /* Green */
+  background-color: #ff9c4c; /* Green */
   border: 15px;
   color: white;
   padding: 10px 20px;
