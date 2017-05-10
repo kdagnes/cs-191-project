@@ -29,28 +29,33 @@ if ($conn->connect_error) {
 <body>
 <?php
 /*check if fields are empty*/
-if(empty($_POST['username']) or empty($_POST['password']) or empty($_POST['name']) or empty($_POST['email']) or empty($_POST['mobile']) or 	!is_numeric($_POST['mobile'])){
+if(empty($_POST['username']) or empty($_POST['password']) or empty($_POST['name']) or empty($_POST['email']) or empty($_POST['mobile'])){
 	$temp = "Failed to create an account. Please properly fill up all details.";
 	echo "<script>alert('$temp'); window.location.href='account.php'</script>";
 			exit();
 }
 // check if username already exists
 $sql = "SELECT * FROM accounts WHERE username='".$_POST['username']."'";
-if($conn->query($sql) === TRUE){
+$result = $conn->query($sql);
+
+if($result->num_rows > 0){
   $temp = "Failed to create an account. Username already exists.";
   echo "<script>alert('$temp'); window.location.href='account.php'</script>";
-  die();
+  die(); exit();
 }
+
+
 /*inserting values to accounts*/
 $sql = "INSERT INTO accounts (username, password, name,email,mobile)
 VALUES ('".$_POST['username']."', '".$_POST['password']."','".$_POST['name']."','".$_POST['email']."','".$_POST['mobile']."')";
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql) == TRUE) {
     $temp = "New record created successfully! Please log in using your new account.";
 } else {
-    $temp = "Failed to create an account. Please properly fill up all details.";
+    $temp = "Failed to create an account. Please properly fill up all the details.";
 }
 echo "<script>alert('$temp'); window.location.href='account.php'</script>";
 die();
+
 ?>
 
 </body>
